@@ -183,9 +183,11 @@ function AssignRoles() {
 
 
     return (
-        <div>
+        <div className="container-fluid text-center mt-5" style={{ backgroundColor: '#87CEEB' }}>
+            <span onClick={redirect_to_home} className="btn btn-primary btn-lg mx-2 mb-4"> HOME </span>
+            <br/>
             <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm">HOME</span>
+
             <h4>Raw Material Suppliers:</h4>
             <form onSubmit={handlerSubmitRMS}>
                 <input className="form-control-sm" type="text" onChange={handlerChangeAddressRMS} placeholder="Ethereum Address" required />

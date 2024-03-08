@@ -43,7 +43,7 @@ function AddMed() {
         if (networkData) {
             const supplychain = new web3.eth.Contract(SupplyChainABI.abi, networkData.address);
             setSupplyChain(supplychain);
-            var i;
+            let i;
             const medCtr = await supplychain.methods.medicineCtr().call();
             const med = {};
             const medStage = [];
@@ -89,15 +89,17 @@ function AddMed() {
         }
     }
     return (
-        <div>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
+        <div className="container-fluid text-center mt-5" style={{ backgroundColor: '#87CEEB' }}>
+            <span onClick={redirect_to_home} className="btn btn-primary btn-lg mx-2 mb-4"> HOME </span>
             <br />
-            <h5>Add Medicine Order:</h5>
+            <span><b>Current Account Address</b> <br /> {currentaccount}</span>
+            <br />
+            <h5>Place New Order</h5>
             <form onSubmit={handlerSubmitMED}>
                 <input className="form-control-sm" type="text" onChange={handlerChangeNameMED} placeholder="Medicine Name" required />
                 <input className="form-control-sm" type="text" onChange={handlerChangeDesMED} placeholder="Medicine Description" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMED}>Order</button>
+                <br/>
+                <button className="btn btn-primary btn-lg mx-2 mb-4" onSubmit={handlerSubmitMED}>Order</button>
             </form>
             <br />
             <h5>Ordered Medicines:</h5>

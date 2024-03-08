@@ -397,9 +397,17 @@ function Track() {
     }
 
     return (
-        <div>
+        <div className="container-fluid text-center mt-5" style={{ backgroundColor: '#87CEEB' }}>
+            <span onClick={redirect_to_home} className="btn btn-primary btn-lg mx-2 mb-4"> HOME </span>
+            <br/>
             <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
+            <br/>
+            <h5>Enter Medicine ID to Track it</h5>
+
+            <form onSubmit={handlerSubmit}>
+                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
+                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmit}>Track</button>
+            </form>
             <table className="table table-sm table-bordered">
                 <thead>
                     <tr>
@@ -426,12 +434,6 @@ function Track() {
                     })}
                 </tbody>
             </table>
-            <h5>Enter Medicine ID to Track it</h5>
-
-            <form onSubmit={handlerSubmit}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmit}>Track</button>
-            </form>
         </div>
     )
 }
